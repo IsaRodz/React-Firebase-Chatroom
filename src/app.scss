@@ -1,0 +1,73 @@
+.app {
+    width: 500px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.app-header {
+    background-color: #282c34;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32px;
+    color: white;
+    padding: 10px;
+}
+
+.chatroom {
+    height: 90vh;
+    background: #fff;
+    position: relative;
+    .message {
+        padding: 10px;
+        display: flex;
+        .text {
+            margin: 0;
+            border-radius: 5px;
+            padding: 14px;
+            font-size: 14px;
+        }
+        .photo {
+            border-radius: 50%;
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .received {
+        @extend .message;
+        .text {
+            margin-left: 10px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+    .sent {
+        @extend .message;
+        flex-direction: row-reverse;
+        .text {
+            margin-right: 10px;
+            background: rgb(0, 132, 255);
+            color: #fff;
+        }
+    }
+
+    form {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        background: #fafafa;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        input {
+            flex: 1;
+            background: transparent;
+            padding: 20px 16px;
+        }
+    }
+}
+
+.app-link {
+    color: #61dafb;
+}
