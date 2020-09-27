@@ -1,3 +1,13 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
 .app {
     width: 500px;
     max-width: 100%;
@@ -16,17 +26,31 @@
 }
 
 .chatroom {
-    height: 90vh;
     background: #fff;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    padding-bottom: 60px;
+
+    .messages {
+        flex: 1;
+        overflow-y: auto;
+    }
     .message {
         padding: 10px;
         display: flex;
+        .user_name {
+            width: 100%;
+            font-size: 14px;
+            margin: 0 0 10px 0;
+        }
         .text {
             margin: 0;
             border-radius: 5px;
             padding: 14px;
             font-size: 14px;
+            word-break: break-word;
         }
         .photo {
             border-radius: 50%;
