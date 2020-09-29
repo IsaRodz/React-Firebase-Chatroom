@@ -1,27 +1,26 @@
-import React from 'react';
-import './app.scss';
+import React from "react";
+import "./app.scss";
 
-import firebase from './firebase';
+import firebase from "./firebase";
 
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
 
-import SignIn from './components/SignIn';
-import SignOut from './components/SignOut';
-import Chat from './components/Chat';
+import SignOut from "./components/SignOut";
+import Chat from "./components/Chat";
+import Loading from "./components/Loading";
+import Home from "./components/Home";
 
 const auth = firebase.auth();
 
 function App() {
-    const [user] = useAuthState(auth);
-    return (
-        <div className="app">
-            <header className="app-header">
-                Chatroom
-                {user && <SignOut />}
-            </header>
-            <section>{user ? <Chat /> : <SignIn />}</section>
-        </div>
-    );
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) return <Loading />;
+  return (
+    <div className="app">
+      <section>{user ? <Chat /> : <Home />}</section>
+    </div>
+  );
 }
 
 export default App;

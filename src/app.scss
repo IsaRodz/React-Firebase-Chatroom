@@ -1,103 +1,149 @@
 ::-webkit-scrollbar {
-    width: 7px;
+  width: 7px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-.app {
-    width: 500px;
-    max-width: 100%;
-    margin: auto;
+.container {
+  width: 1200px;
+  max-width: 100%;
+  margin: auto;
+}
+.title {
+  font-family: Epilogue;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 0.25em;
+
+  &.h1 {
+    font-size: 60px;
+  }
+  &.h2 {
+    font-size: 48px;
+  }
+  &.h3 {
+    font-size: 32px;
+  }
 }
 
-.app-header {
-    background-color: #282c34;
+.button {
+  padding: 1em 2em;
+  border-radius: 5px;
+  &.primary {
+    background: linear-gradient(120deg, #3f51b5, #311b92);
+    box-shadow: 5px 20px -5px rgba(0, 0, 0, 0.1);
+    color: #fff;
+  }
+  &.large {
+    font-size: 16px;
+  }
+}
+
+.chatroom {
+  width: 800px;
+  max-width: 100%;
+  float: right;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 60px;
+  animation: enter 300ms;
+
+  @keyframes enter {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  .header {
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    background: linear-gradient(120deg, #3f51b5, #311b92);
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 32px;
     color: white;
-    padding: 10px;
+    padding: 20px;
     button {
-        color: rgba(250, 250, 250, 0.5);
-        background: none;
+      color: rgba(250, 250, 250, 0.8);
+      background: none;
     }
-}
-
-.chatroom {
-    background: #fff;
-    position: relative;
+  }
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+  }
+  .message {
+    padding: 10px 16px;
     display: flex;
-    flex-direction: column;
-    height: 90vh;
-    padding-bottom: 60px;
+    .user_name {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+    .text {
+      line-height: 1.5;
+      margin: 0;
+      border-radius: 5px;
+      padding: 14px;
+      font-size: 16px;
+      word-break: break-word;
+      max-width: 80%;
+    }
+    .photo {
+      border-radius: 50%;
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .received {
+    @extend .message;
+    .text {
+      margin-left: 10px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+  .sent {
+    @extend .message;
+    flex-direction: row-reverse;
+    .text {
+      margin-right: 10px;
+      background: #3f51b5;
+      color: #fff;
+    }
+  }
 
-    .messages {
-        flex: 1;
-        overflow-y: auto;
+  form {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: #fafafa;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    height: 60px;
+    input {
+      flex: 1;
+      background: transparent;
+      padding: 20px 16px;
     }
-    .message {
-        padding: 10px;
-        display: flex;
-        .user_name {
-            width: 100%;
-            font-size: 14px;
-            margin: 0 0 10px 0;
-        }
-        .text {
-            line-height: 1.5;
-            margin: 0;
-            border-radius: 5px;
-            padding: 14px;
-            font-size: 14px;
-            word-break: break-word;
-            max-width: 80%;
-        }
-        .photo {
-            border-radius: 50%;
-            display: block;
-            width: 50px;
-            height: 50px;
-        }
+    button {
+      color: #3f51b5;
+      font-weight: 500;
     }
-    .received {
-        @extend .message;
-        .text {
-            margin-left: 10px;
-            background: rgba(0, 0, 0, 0.1);
-        }
-    }
-    .sent {
-        @extend .message;
-        flex-direction: row-reverse;
-        .text {
-            margin-right: 10px;
-            background: rgb(0, 132, 255);
-            color: #fff;
-        }
-    }
-
-    form {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        background: #fafafa;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        input {
-            flex: 1;
-            background: transparent;
-            padding: 20px 16px;
-        }
-    }
+  }
 }
 
 .app-link {
-    color: #61dafb;
+  color: #61dafb;
 }
