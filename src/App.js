@@ -5,7 +5,6 @@ import firebase from "./firebase";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 
-import SignOut from "./components/SignOut";
 import Chat from "./components/Chat";
 import Loading from "./components/Loading";
 import Home from "./components/Home";

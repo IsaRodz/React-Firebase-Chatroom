@@ -15,7 +15,16 @@ function Home() {
       </p>
       <p>
         Esta app fue construida utilizando ReactJS y Firebase. Puedes obtener el
-        repositorio en <a target="_blank" href="https://github.com/IsaRodz/React-Firebase-Chatroom"> Github </a>.
+        repositorio en{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/IsaRodz/React-Firebase-Chatroom"
+        >
+          {" "}
+          Github
+        </a>
+        .
       </p>
       <SignIn />
     </div>
